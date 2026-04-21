@@ -22,7 +22,7 @@ Para clonar y ejecutar el proyecto en una computadora nueva, se deben seguir est
 A. Clonación del Proyecto
 Bash
 # Clonar el repositorio
-git clone https://github.com/TU_USUARIO/TechConnect-pro.git
+git clone https://github.com/AndersonAedo/TechConnect-pro.git
 
 # Entrar a la carpeta principal
 cd TechConnect-pro
@@ -33,12 +33,11 @@ Bash
 # Entrar a la carpeta del frontend
 cd frontend
 
-# Instalar librerías (Lucide-React, SweetAlert2, Hook-Form)
+# Instalar librerías 
 npm install
-C. Arranque del Sistema
-Bash
 # Iniciar el servidor local
 npm run dev
+
 Credenciales de Acceso:
 
 Usuario: admin@admin.com
