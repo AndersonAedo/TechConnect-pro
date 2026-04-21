@@ -1,60 +1,98 @@
 :root {
+  /* Paleta de colores inspirada en la imagen */
+  --bg-color: #f4f7f6;
+  --sidebar-dark: #2c3e50;
+  --primary-blue: #00a0d1;
+  --success-green: #27ae60;
+  --text-main: #333;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #f4f7f6;
-  color: #2c3e50;
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  color: var(--text-main);
 }
 
 .app-container {
-  max-width: 1200px;
+  max-width: 1400px; /* Un poco más ancho para estilo dashboard */
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 20px;
 }
 
+/* Buscador estilo minimalista de la imagen */
 .search-bar {
   width: 100%;
   max-width: 400px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 4px; /* Bordes menos redondeados para verse más corporativo */
+  border: 1px solid #ccc;
+  background-color: white;
   margin-bottom: 2rem;
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: var(--primary-blue);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px; /* Gap más pequeño como en la imagen */
 }
 
+/* Tarjetas con el diseño plano y sombra sutil del panel */
 .card {
   background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  padding: 0; /* Quitamos padding general para controlar cabeceras */
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+  border-top: 3px solid var(--primary-blue); /* Detalle de color superior */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* Contenido interno de la tarjeta */
+.card-content {
+  padding: 15px;
 }
 
 .price {
-  color: #27ae60;
-  font-weight: bold;
-  font-size: 1.2rem;
+  color: var(--success-green);
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+/* Botones con el azul del CIGETPRO */
+button {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #008bb5;
 }
 
 .loading {
-  font-size: 1.5rem;
-  color: #3498db;
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  text-align: center;
   margin-top: 50px;
-}
-
-button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
 }
