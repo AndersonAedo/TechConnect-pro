@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -15,27 +14,3 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-🎉 ¡TECHCONNECT-PRO LISTO EN GITHUB! 🚀
-
-🔗 git clone https://github.com/AndersonAedo/TechConnect-pro.git
-📁 cd TechConnect-pro
-💻 code .
-
-⚙️ BACKEND (tu parte):
-cd backend
-npm install  
-npm run dev
-→ http://localhost:5000/api/health
-
-🎨 FRONTEND (mi parte):
-cd frontend
-npm install
-npm run dev
-→ http://localhost:3000
-
-📚 Tu rama: git checkout -b feat/cloud-db
-🔥 ¡Tu misión: MySQL Cloud + Multer! 
-
-Cualquier duda: aquí estoy 😎
->>>>>>> 83b23657b9d18db23b6de4e5f0557cd33186d0e0
