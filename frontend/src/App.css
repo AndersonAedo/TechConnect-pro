@@ -1,98 +1,98 @@
 :root {
-  /* Paleta de colores inspirada en la imagen */
   --bg-color: #f4f7f6;
-  --sidebar-dark: #2c3e50;
+  --sidebar-dark: #222d32;
   --primary-blue: #00a0d1;
-  --success-green: #27ae60;
+  --success-green: #00a65a;
   --text-main: #333;
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 body {
   background-color: var(--bg-color);
   margin: 0;
-  color: var(--text-main);
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .app-container {
-  max-width: 1400px; /* Un poco más ancho para estilo dashboard */
-  margin: 0 auto;
   padding: 20px;
+  background-color: var(--bg-color);
+  min-height: 100vh;
 }
 
-/* Buscador estilo minimalista de la imagen */
+/* Título estilo Dashboard */
+h1 {
+  font-weight: 300;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d2d6de;
+  padding-bottom: 10px;
+}
+
+/* Buscador más integrado */
 .search-bar {
   width: 100%;
-  max-width: 400px;
-  padding: 10px 15px;
-  border-radius: 4px; /* Bordes menos redondeados para verse más corporativo */
+  max-width: 300px;
+  padding: 8px;
   border: 1px solid #ccc;
-  background-color: white;
-  margin-bottom: 2rem;
-  outline: none;
+  border-radius: 0; /* Estilo AdminLTE es más recto */
+  margin-bottom: 30px;
+  display: block;
 }
 
-.search-bar:focus {
-  border-color: var(--primary-blue);
-}
-
+/* La cuadrícula de tarjetas */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px; /* Gap más pequeño como en la imagen */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
 }
 
-/* Tarjetas con el diseño plano y sombra sutil del panel */
+/* Tarjeta estilo CIGETPRO / AdminLTE */
 .card {
-  background: white;
-  padding: 0; /* Quitamos padding general para controlar cabeceras */
-  border-radius: 4px;
-  box-shadow: var(--card-shadow);
-  border-top: 3px solid var(--primary-blue); /* Detalle de color superior */
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-
-.card:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-/* Contenido interno de la tarjeta */
-.card-content {
+  background: #ffffff;
+  border-radius: 3px;
+  position: relative;
+  border-top: 3px solid #d2d6de; /* Color por defecto */
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Variación de color para las tarjetas (como en tu imagen) */
+.card:nth-child(1) { border-top-color: #00c0ef; } /* Celeste */
+.card:nth-child(2) { border-top-color: #00a65a; } /* Verde */
+.card:nth-child(3) { border-top-color: #f39c12; } /* Naranja */
+
+.card h3 {
+  font-size: 18px;
+  margin-top: 5px;
+  color: var(--text-main);
 }
 
 .price {
-  color: var(--success-green);
-  font-weight: 600;
-  font-size: 1.4rem;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
   margin: 10px 0;
 }
 
-/* Botones con el azul del CIGETPRO */
+/* Botón estilo bloque */
 button {
   background-color: var(--primary-blue);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px;
+  width: 100%;
   border-radius: 3px;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 0.85rem;
   cursor: pointer;
-  transition: background 0.2s;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 button:hover {
   background-color: #008bb5;
-}
-
-.loading {
-  font-size: 1.2rem;
-  color: var(--primary-blue);
-  text-align: center;
-  margin-top: 50px;
 }
