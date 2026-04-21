@@ -92,35 +92,36 @@ body {
 .btn-add:hover { background-color: #008d4c; }
 
 /* --- Grid de Tarjetas (Lo más importante para el orden) --- */
+/* Esto hará que los productos se pongan uno al lado del otro */
 .grid {
   display: grid;
-  /* Crea columnas automáticas de mínimo 280px */
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+  /* 'repeat(auto-fit...)' hace que se acomoden solos horizontalmente */
+  /* 250px es un buen tamaño para que quepan varios de largo */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; /* Espacio entre cada tarjeta */
+  width: 100%;
+  padding-top: 20px;
 }
 
-/* Tarjeta Estilo Premium */
+/* Ajustamos la tarjeta para que sea más compacta y elegante */
 .card {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  border-top: 4px solid var(--primary-blue); /* Detalle de color superior */
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #3c8dbc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  transform: scale(1.03); /* Un pequeño efecto al pasar el mouse */
 }
 
 .card-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover; /* Mantiene la proporción de la imagen */
-  background: #f9f9f9;
+  height: 150px; /* Reducimos un poco la altura de la imagen para que sea más horizontal */
+  object-fit: cover;
 }
 
 .card-body {
