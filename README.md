@@ -1,17 +1,53 @@
-Informe del Proyecto: TechConnect Pro
- un resumen realizado para presentar a mi compañero o profesor:
+Informe de Desarrollo: TechConnect Pro Marketplace
+Desarrolladores: * Rodrigo Anderson Aedo Tutaya
 
-Nombre del Proyecto: TechConnect Pro Marketplace
-Estado: Fase de Interfaz y Experiencia de Usuario (UI/UX)
+Christopher Jenko Oscco Arotinco
 
-Mejoras Implementadas:
+Repositorio: https://github.com/TU_USUARIO/TechConnect-pro
 
-Diseño Visual: Se aplicó una estética rústica y profesional utilizando una paleta de colores basada en "Oro Viejo" (#d1b47b) y "Marrón Cuero" (#8b6b3e).
+1. Resumen de Actualizaciones (UI/UX)
+Se ha transformado la interfaz de usuario para ofrecer una experiencia rústica, profesional y ordenada:
 
-Optimización de Espaciado: Se aumentó el margen del encabezado a 60px y el espacio entre tarjetas a 40px para evitar una interfaz saturada.
+Estética: Implementación de un fondo con textura de cuero y una paleta de colores rústica basada en Oro Viejo, Cuero y Antracita.
 
-Funcionalidad del Buscador: Se separó el campo de búsqueda del selector de categorías con un gap de 25px, mejorando la claridad en la navegación.
+Visibilidad: Corrección de contraste en textos de búsqueda, formularios y el título de inicio de sesión, ahora totalmente legibles en negro sólido.
 
-Corrección de Identidad: Se rediseñó el botón de "Salir" con un fondo negro sólido y texto blanco para garantizar visibilidad y coherencia con la marca.
+Optimización de Espacios: Se aumentó la separación del buscador y las categorías por 25px, y las tarjetas de servicios cuentan con un margen de 40px para evitar la saturación visual.
 
-Seguridad y Acceso: Se actualizó la página de inicio de sesión para asegurar que el título sea visible y el diseño sea minimalista.
+Identidad de Marca: Rediseño del botón "Salir" a un estilo negro sólido minimalista para garantizar su visibilidad en cualquier navegador.
+
+2. Guía de Inicio para Colaboradores
+Para clonar y ejecutar el proyecto en una computadora nueva, se deben seguir estos comandos en la terminal de Visual Studio Code:
+
+A. Clonación del Proyecto
+Bash
+# Clonar el repositorio
+git clone https://github.com/TU_USUARIO/TechConnect-pro.git
+
+# Entrar a la carpeta principal
+cd TechConnect-pro
+B. Instalación y Preparación
+Es obligatorio instalar las dependencias antes del primer arranque:
+
+Bash
+# Entrar a la carpeta del frontend
+cd frontend
+
+# Instalar librerías (Lucide-React, SweetAlert2, Hook-Form)
+npm install
+C. Arranque del Sistema
+Bash
+# Iniciar el servidor local
+npm run dev
+Credenciales de Acceso:
+
+Usuario: admin@admin.com
+
+Contraseña: 123456
+
+3. Notas Técnicas
+El proyecto utiliza React con Vite para un rendimiento óptimo.
+
+Se ha centralizado el diseño en frontend/src/App.css para facilitar futuras modificaciones estéticas.
+
+La estructura de datos para los servicios incluye categorías de Corte, Barba, Estilo y Productos con etiquetas personalizadas.
