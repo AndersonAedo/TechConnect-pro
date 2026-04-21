@@ -50,3 +50,21 @@ El proyecto utiliza React con Vite para un rendimiento óptimo.
 Se ha centralizado el diseño en frontend/src/App.css para facilitar futuras modificaciones estéticas.
 
 La estructura de datos para los servicios incluye categorías de Corte, Barba, Estilo y Productos con etiquetas personalizadas.
+
+
+4. Solución de Errores Comunes.
+Si al ejecutar npm run dev aparece un error de pantalla roja tipo [plugin:vite:css] [postcss], sigue estos pasos:
+
+Error de "Unknown word": Este error ocurre si hay texto en español fuera de los comentarios en los archivos de estilos.
+
+Solución Técnica:
+
+Abre el archivo frontend/src/App.css.
+
+Asegúrate de que cualquier texto explicativo esté encerrado entre los símbolos /* y */.
+
+Ejemplo correcto: /* cambio para github */.
+
+Guarda el archivo con Ctrl + S, detén la terminal con Ctrl + C y vuelve a ejecutar npm run dev.
+
+Persistencia del Error: Si el error continúa, verifica que no falte ninguna llave de cierre } al final de las reglas de CSS anteriores.
