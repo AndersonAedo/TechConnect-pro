@@ -3,7 +3,7 @@ Desarrolladores: * Rodrigo Anderson Aedo Tutaya
 
 Christopher Jenko Oscco Arotinco
 
-Repositorio: https://github.com/TU_USUARIO/TechConnect-pro
+Repositorio:  https://github.com/AndersonAedo/TechConnect-pro.git
 
 1. Resumen de Actualizaciones (UI/UX)
 Se ha transformado la interfaz de usuario para ofrecer una experiencia rústica, profesional y ordenada:
