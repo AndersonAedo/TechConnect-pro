@@ -1,271 +1,263 @@
-/* --- Variables y Reset Global --- */
+/* --- Variables Maestras --- */
 :root {
-  --primary-blue: #3c8dbc;
-  --hover-blue: #367fa9;
-  --success-green: #00a65a;
-  --danger-red: #dd4b39;
-  --bg-dashboard: #ecf0f5; /* Fondo gris suave profesional */
-  --text-main: #333;
+  --primary-color: #d1b47b;   /* Oro Viejo */
+  --secondary-color: #333;    /* Antracita */
+  --accent-leather: #8b6b3e;  /* Marrón Cuero */
+  --bg-dashboard: #f4f1ea;    /* Pergamino */
+  --text-main: #222;          /* Lectura Clara */
 }
 
+/* --- Base y Fondo Rústico --- */
 body {
   margin: 0;
-  padding: 0;
   background-color: var(--bg-dashboard);
+  background-image: url('https://www.transparenttextures.com/patterns/leather.png'); 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-main);
 }
 
-/* --- Contenedor Principal --- */
 .app-container {
-  padding: 30px;
+  padding: 40px; /* Espaciado lateral amplio para orden */
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* --- Cabecera --- */
+/* --- Header Profesional (Separado y Claro) --- */
 .dashboard-header {
-  border-bottom: 1px solid #d2d6de;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
+  background: white;
+  margin: -40px -40px 60px -40px; /* 60px de separación inferior */
+  padding: 25px 60px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-bottom: 4px solid var(--primary-color);
 }
 
-.dashboard-header h1 {
-  font-weight: 300;
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-top h1 {
+  font-family: 'Times New Roman', serif;
+  font-size: 32px;
   margin: 0;
-  font-size: 28px;
+  color: var(--secondary-color);
 }
 
-.dashboard-header small {
-  color: #777;
-  font-size: 16px;
+.header-top small {
+  color: var(--primary-color);
+  font-size: 18px;
   margin-left: 10px;
 }
 
-/* --- Barra de Filtros y Controles (Ordenada) --- */
-.controls-section {
-  background: white;
-  padding: 15px 20px;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+/* --- Navegación de Usuario --- */
+/* --- Navegación de Usuario y BOTÓN SALIR REPARADO --- */
+.user-nav {
   display: flex;
-  gap: 15px;
   align-items: center;
-  justify-content: space-between; /* Separa búsqueda de botón */
+  gap: 15px;
+  background: #fdfcf9;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid #eaddca;
+  min-width: fit-content; /* Asegura que no se encoja */
 }
 
-/* Contenedor para filtros */
+/* Forzamos el estilo negro sólido para que no sea transparente */
+.btn-logout {
+  background: #000000 !important; 
+  color: #ffffff !important;
+  border: none !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  visibility: visible !important; /* Asegura que se vea */
+  opacity: 1 !important;
+}
+
+.btn-logout:hover {
+  background: #333333 !important;
+}
+
+.user-details { display: flex; flex-direction: column; }
+.user-name { font-size: 14px; color: #444; }
+.user-role { font-size: 11px; color: var(--primary-color); font-weight: bold; text-transform: uppercase; }
+
+.btn-logout {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-logout:hover { background: #e8e8e8; }
+
+/* Sección de Controles con más aire */
+.controls-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px; /* Más espacio hacia las tarjetas */
+  gap: 40px; /* Espacio entre el grupo de filtros y el botón nuevo */
+}
+
 .filters-container {
   display: flex;
-  gap: 15px;
-  flex-grow: 1;
-  max-width: 600px;
+  gap: 25px; /* AQUÍ: Espacio clave entre el buscador y el selector */
+  flex: 1;
+  align-items: center;
 }
+
+/* Ajuste del Buscador */
+.search-box {
+  position: relative;
+  flex: 2; /* Le damos más prioridad de ancho al buscador */
+  max-width: 500px;
+}
+
+/* Ajuste del Selector de Categorías */
+.filter-select {
+  flex: 1; /* El selector será más pequeño que el buscador */
+  max-width: 250px;
+  padding: 12px 15px; /* Relleno interno para que no se vea apretado el texto */
+  cursor: pointer;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background-color: white;
+  color: #000; /* Texto negro para que se note */
+}
+.filters-container {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.search-box { position: relative; flex: 1; max-width: 450px; }
+.search-icon { position: absolute; left: 12px; top: 12px; color: #888; }
 
 .search-bar, .filter-select {
-  padding: 10px 15px;
-  border: 1px solid #d2d6de;
-  border-radius: 4px;
-  outline: none;
-  font-size: 14px;
   width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background: white;
+  color: var(--text-main); /* Texto negro visible */
+  font-size: 15px;
 }
 
-.search-bar:focus, .filter-select:focus {
-  border-color: var(--primary-blue);
-}
-
-/* Botón Nuevo Servicio */
 .btn-add {
-  background-color: var(--success-green);
+  background: var(--accent-leather);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 14px 28px;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
-  white-space: nowrap; /* Evita que el texto se rompa */
+  box-shadow: 0 4px 12px rgba(139, 107, 62, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.btn-add:hover { background-color: #008d4c; }
-
-/* --- Grid de Tarjetas (Lo más importante para el orden) --- */
-/* Esto hará que los productos se pongan uno al lado del otro */
+/* --- Grid de Tarjetas (Aireado y Moderno) --- */
 .grid {
   display: grid;
-  /* 'repeat(auto-fit...)' hace que se acomoden solos horizontalmente */
-  /* 250px es un buen tamaño para que quepan varios de largo */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 20px; /* Espacio entre cada tarjeta */
-  width: 100%;
-  padding-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px; /* Espacio de 40px para que no se vea apretado */
 }
 
-/* Ajustamos la tarjeta para que sea más compacta y elegante */
 .card {
   background: white;
-  border-radius: 8px;
-  border-top: 4px solid #3c8dbc;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .card:hover {
-  transform: scale(1.03); /* Un pequeño efecto al pasar el mouse */
+  transform: translateY(-12px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
-.card-image {
-  width: 100%;
-  height: 150px; /* Reducimos un poco la altura de la imagen para que sea más horizontal */
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 20px;
-  text-align: center;
-  flex-grow: 1; /* Empuja el botón al fondo si hay poco texto */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+.card-img-container { position: relative; height: 200px; }
+.card-image { width: 100%; height: 100%; object-fit: cover; }
 
 .badge {
-  background: #e1f5fe;
-  color: #01579b;
-  padding: 4px 10px;
-  border-radius: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 16px;
+  border-radius: 50px;
   font-size: 11px;
-  text-transform: uppercase;
   font-weight: bold;
-  display: inline-block;
-  margin-bottom: 10px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.card h3 {
-  font-size: 18px;
-  margin: 10px 0;
-  font-weight: 600;
+/* Colores de Badges por Categoría */
+.badge-corte { background: var(--secondary-color); }
+.badge-barba { background: var(--primary-color); }
+.badge-estilo { background: #5d4037; }
+.badge-productos { background: #8d6e63; }
+
+.card-body {
+  padding: 25px;
+  text-align: center;
+}
+
+.card-body h3 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  color: var(--secondary-color);
 }
 
 .price {
-  font-size: 22px;
+  color: var(--accent-leather);
+  font-size: 26px;
   font-weight: bold;
-  color: #333;
-  margin: 10px 0 20px 0;
+  margin: 15px 0;
 }
 
 .btn-action {
-  background-color: var(--primary-blue);
+  background: var(--secondary-color);
   color: white;
   border: none;
-  padding: 10px;
   width: 100%;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btn-action:hover { background-color: var(--hover-blue); }
-
-/* --- Estado de Carga --- */
-.loading-skeleton {
-  width: 100%;
-  height: 350px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
+  padding: 14px;
   border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* --- Modal (Formulario Emergente) Estilizado --- */
+/* --- Modal Rústico --- */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7); /* Fondo oscuro */
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(3px); /* Difumina el fondo */
+  z-index: 2000;
+  backdrop-filter: blur(4px);
 }
 
 .modal-content {
   background: white;
-  padding: 30px;
-  border-radius: 8px;
-  width: 100%;
+  width: 90%;
   max-width: 500px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  border-top: 5px solid var(--primary-blue);
-  animation: modalSlideIn 0.3s ease;
-}
-
-@keyframes modalSlideIn {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-content h2 { margin-top: 0; font-weight: 400; color: #444; text-align: center; margin-bottom: 25px;}
-
-.form-group { margin-bottom: 20px; }
-
-.form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: #555; }
-
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #d2d6de;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-/* Acciones del Modal */
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 30px;
-  border-top: 1px solid #eee;
-  padding-top: 20px;
-}
-
-.btn-save {
-  background-color: var(--primary-blue);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn-cancel {
-  background-color: #f4f4f4;
-  color: #444;
-  border: 1px solid #ddd;
-  padding: 12px 30px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-cancel:hover { background-color: #e7e7e7; }
-.btn-save:hover { background-color: var(--hover-blue); }
-
-.img-preview {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-top: 15px;
-  border-radius: 4px;
-  border: 2px dashed #ddd;
+  padding: 35px;
+  border-radius: 15px;
+  border-top: 6px solid var(--primary-color);
 }
