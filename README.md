@@ -1,41 +1,17 @@
-<<<<<<< HEAD
-# React + Vite
+Informe del Proyecto: TechConnect Pro
+ un resumen realizado para presentar a mi compañero o profesor:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nombre del Proyecto: TechConnect Pro Marketplace
+Estado: Fase de Interfaz y Experiencia de Usuario (UI/UX)
 
-Currently, two official plugins are available:
+Mejoras Implementadas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Diseño Visual: Se aplicó una estética rústica y profesional utilizando una paleta de colores basada en "Oro Viejo" (#d1b47b) y "Marrón Cuero" (#8b6b3e).
 
-## React Compiler
+Optimización de Espaciado: Se aumentó el margen del encabezado a 60px y el espacio entre tarjetas a 40px para evitar una interfaz saturada.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Funcionalidad del Buscador: Se separó el campo de búsqueda del selector de categorías con un gap de 25px, mejorando la claridad en la navegación.
 
-## Expanding the ESLint configuration
+Corrección de Identidad: Se rediseñó el botón de "Salir" con un fondo negro sólido y texto blanco para garantizar visibilidad y coherencia con la marca.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-🎉 ¡TECHCONNECT-PRO LISTO EN GITHUB! 🚀
-
-🔗 git clone https://github.com/AndersonAedo/TechConnect-pro.git
-📁 cd TechConnect-pro
-💻 code .
-
-⚙️ BACKEND (tu parte):
-cd backend
-npm install  
-npm run dev
-→ http://localhost:5000/api/health
-
-🎨 FRONTEND (mi parte):
-cd frontend
-npm install
-npm run dev
-→ http://localhost:3000
-
-📚 Tu rama: git checkout -b feat/cloud-db
-🔥 ¡Tu misión: MySQL Cloud + Multer! 
-
-Cualquier duda: aquí estoy 😎
->>>>>>> 83b23657b9d18db23b6de4e5f0557cd33186d0e0
+Seguridad y Acceso: Se actualizó la página de inicio de sesión para asegurar que el título sea visible y el diseño sea minimalista.
