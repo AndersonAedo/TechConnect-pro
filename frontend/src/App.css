@@ -1,98 +1,80 @@
-:root {
-  --bg-color: #f4f7f6;
-  --sidebar-dark: #222d32;
-  --primary-blue: #00a0d1;
-  --success-green: #00a65a;
-  --text-main: #333;
-}
-
-body {
-  background-color: var(--bg-color);
-  margin: 0;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
+/* Contenedor Principal con fondo gris suave de Dashboard */
 .app-container {
-  padding: 20px;
-  background-color: var(--bg-color);
+  background-color: #ecf0f5;
   min-height: 100vh;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Título estilo Dashboard */
-h1 {
-  font-weight: 300;
-  font-size: 24px;
-  text-align: left;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #d2d6de;
-  padding-bottom: 10px;
-}
-
-/* Buscador más integrado */
-.search-bar {
-  width: 100%;
-  max-width: 300px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 0; /* Estilo AdminLTE es más recto */
+/* Barra de Filtros y Búsqueda */
+.controls-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   margin-bottom: 30px;
-  display: block;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
-/* La cuadrícula de tarjetas */
+/* Grid de Tarjetas */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-/* Tarjeta estilo CIGETPRO / AdminLTE */
+/* Tarjeta Estilo Premium */
 .card {
-  background: #ffffff;
-  border-radius: 3px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden; /* Para que la imagen respete el borde redondeado */
+  border-top: 4px solid #3c8dbc;
+  transition: all 0.3s ease;
   position: relative;
-  border-top: 3px solid #d2d6de; /* Color por defecto */
-  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de Imagen dentro de la Card */
+.card-image {
   width: 100%;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  padding: 15px;
-  box-sizing: border-box;
+  height: 160px;
+  object-fit: cover;
+  background: #f9f9f9;
+}
+
+.card-body {
+  padding: 20px;
   text-align: center;
 }
 
-/* Variación de color para las tarjetas (como en tu imagen) */
-.card:nth-child(1) { border-top-color: #00c0ef; } /* Celeste */
-.card:nth-child(2) { border-top-color: #00a65a; } /* Verde */
-.card:nth-child(3) { border-top-color: #f39c12; } /* Naranja */
-
-.card h3 {
-  font-size: 18px;
-  margin-top: 5px;
-  color: var(--text-main);
-}
-
-.price {
-  display: block;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin: 10px 0;
-}
-
-/* Botón estilo bloque */
-button {
-  background-color: var(--primary-blue);
-  color: white;
-  border: none;
-  padding: 10px;
+/* Estado de Carga (Skeleton Loader) */
+.loading-skeleton {
   width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
+  height: 250px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Badge de Categoría */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-button:hover {
-  background-color: #008bb5;
+  background: #e1f5fe;
+  color: #01579b;
 }
