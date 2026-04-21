@@ -6,15 +6,10 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // Permite que el frontend se conecte
+app.use(express.json()); // Permite leer datos en formato JSON
 
-// Verificación inicial de carga de variables
-console.log('--- Intentando Conexión ---');
-console.log('Host:', process.env.DB_HOST);
-console.log('Usuario:', process.env.DB_USER);
-
-// 1. Configuración de Sequelize para MySQL en Aiven
+// 1. Configuración de Sequelize
 const sequelize = new Sequelize(
     process.env.DB_NAME, 
     process.env.DB_USER, 
@@ -29,42 +24,50 @@ const sequelize = new Sequelize(
                 ca: fs.readFileSync(path.join(__dirname, 'ca.pem')).toString(),
             }
         },
-        logging: false // Mantiene la consola limpia
+        logging: false 
     }
 );
 
 // 2. Modelo de la Base de Datos
 const Servicio = sequelize.define('Servicio', {
     nombre: DataTypes.STRING,
-    descripcion: DataTypes.TEXT,
-    imagen: DataTypes.STRING,
-    categoria: DataTypes.STRING
-}, { 
-    paranoid: true // Habilita Soft Delete
+    precio: DataTypes.FLOAT,
+    categoria: DataTypes.STRING,
+    imagen: DataTypes.TEXT // Usamos TEXT por si la URL es muy larga
+}, { paranoid: true });
+
+// 3. RUTAS (Endpoints)
+// Obtener todos los servicios
+app.get('/servicios', async (req, res) => {
+    try {
+        const servicios = await Servicio.findAll();
+        res.json(servicios);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
-// 3. Función de inicio del servidor
+// Guardar un nuevo servicio
+app.post('/servicios', async (req, res) => {
+    try {
+        const nuevo = await Servicio.create(req.body);
+        res.status(201).json(nuevo);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
+// 4. Inicio del servidor
 const startServer = async () => {
     try {
-        // Verificar conexión
         await sequelize.authenticate();
-        console.log('✅ CONEXIÓN EXITOSA: Aiven MySQL ha aceptado las credenciales.');
-        
-        // Sincronizar tablas
         await sequelize.sync({ alter: true });
-        console.log('🚀 TABLAS ACTUALIZADAS: La estructura está lista.');
-        
-        const PORT = process.env.PORT || 3000;
-        app.listen(PORT, () => {
-            console.log(`📡 SERVIDOR ACTIVO: http://localhost:${PORT}`);
+        console.log('✅ BACKEND CONECTADO A AIVEN');
+        app.listen(process.env.PORT || 3000, () => {
+            console.log(`📡 SERVIDOR EN PUERTO ${process.env.PORT || 3000}`);
         });
     } catch (error) {
-        console.error('❌ ERROR DE CONEXIÓN:');
-        console.error('Detalle:', error.message);
-        console.log('\n--- Posibles Soluciones ---');
-        console.log('1. Revisa que el archivo ca.pem esté en la misma carpeta que server.js');
-        console.log('2. Asegúrate de que el estado en Aiven sea "RUNNING".');
-        console.log('3. Verifica que la contraseña en el .env no tenga espacios extra.');
+        console.error('❌ ERROR:', error.message);
     }
 };
 
